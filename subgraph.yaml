@@ -1,6 +1,6 @@
 specVersion: 0.0.2
-description: Compound governance subgraph
-repository: https://github.com/arr00/compound-governance-subgraph
+description: Inverse governance subgraph
+repository: https://github.com/naoufel-eth/compound-governance-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,12 +8,12 @@ dataSources:
     name: GovernorAlpha
     network: mainnet
     source:
-      address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38"
+      address: "0x260ac708a95b10715d8bcd2f335196fd354534b1"
       abi: GovernorAlpha
-      startBlock: 9601459
+      startBlock: 11498396
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mappings.ts
       entities:
@@ -37,15 +37,15 @@ dataSources:
         - event: VoteCast(address,uint256,bool,uint256)
           handler: handleVoteCastAlpha
   - kind: ethereum/contract
-    name: GovernorBravo
+    name: GovernorMills
     network: mainnet
     source:
-      address: "0xc0Da02939E1441F497fd74F78cE7Decb17B66529"
-      abi: GovernorBravo
-      startBlock: 12006099
+      address: "0xbeccb6bb0aa4ab551966a7e4b97cec74bb359bf6"
+      abi: GovernorMills
+      startBlock: 13549618
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mappings.ts
       entities:
@@ -55,8 +55,8 @@ dataSources:
         - Vote
         - Governance
       abis:
-        - name: GovernorBravo
-          file: ./abis/GovernorBravo.json
+        - name: GovernorMills
+          file: ./abis/GovernorMills.json
       eventHandlers:
         - event: ProposalCreated(uint256,address,address[],uint256[],string[],bytes[],uint256,uint256,string)
           handler: handleProposalCreated
@@ -66,26 +66,26 @@ dataSources:
           handler: handleProposalQueued
         - event: ProposalExecuted(uint256)
           handler: handleProposalExecuted
-        - event: VoteCast(indexed address,uint256,uint8,uint256,string)
+        - event: VoteCast(address,uint256,bool,uint256)
           handler: handleVoteCast
   - kind: ethereum/contract
-    name: CompoundToken
+    name: InverseToken
     network: mainnet
     source:
-      address: "0xc00e94cb662c3520282e6f5717214004a7f26888"
-      abi: CompoundToken
-      startBlock: 9601359
+      address: "0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68"
+      abi: InverseToken
+      startBlock: 11498340
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mappings.ts
       entities:
         - Delegate
         - TokenHolder
       abis:
-        - name: CompoundToken
-          file: ./abis/CompoundToken.json
+        - name: InverseToken
+          file: ./abis/InverseToken.json
       eventHandlers:
         - event: DelegateChanged(indexed address,indexed address,indexed address)
           handler: handleDelegateChanged

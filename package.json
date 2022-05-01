@@ -12,7 +12,9 @@
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 arr00/compound-governance-2"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.17.1",
-    "@graphprotocol/graph-ts": "0.17.0"
+    "@graphprotocol/graph-ts": "0.25.0"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.25.0"
   }
 }

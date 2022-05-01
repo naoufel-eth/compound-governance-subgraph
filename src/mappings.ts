@@ -5,7 +5,7 @@ import {
   ProposalQueued,
   ProposalExecuted,
   VoteCast
-} from "../generated/GovernorBravo/GovernorBravo";
+} from "../generated/GovernorMills/GovernorMills";
 import {
   VoteCast as VoteCastAlpha
 } from "../generated/GovernorAlpha/GovernorAlpha";
@@ -13,7 +13,7 @@ import {
   DelegateChanged,
   DelegateVotesChanged,
   Transfer
-} from "../generated/CompoundToken/CompoundToken";
+} from "../generated/InverseToken/InverseToken";
 import {
   getOrCreateTokenHolder,
   getOrCreateDelegate,
@@ -56,7 +56,7 @@ export function handleProposalCreated(event: ProposalCreated): void {
   proposer = getOrCreateDelegate(event.params.proposer.toHexString());
 
   proposal.proposer = proposer.id;
-  proposal.targets = event.params.targets as Bytes[];
+  proposal.targets = changetype<Bytes[]>(event.params.targets);
   proposal.values = event.params.values;
   proposal.signatures = event.params.signatures;
   proposal.calldatas = event.params.calldatas;
@@ -326,7 +326,7 @@ export function handleProposalCreatedAlpha(event: ProposalCreated): void {
   proposer = getOrCreateDelegate(event.params.proposer.toHexString());
 
   proposal.proposer = proposer.id;
-  proposal.targets = event.params.targets as Bytes[];
+  proposal.targets = changetype<Bytes[]>(event.params.targets);
   proposal.values = event.params.values;
   proposal.signatures = event.params.signatures;
   proposal.calldatas = event.params.calldatas;

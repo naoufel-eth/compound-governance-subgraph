@@ -1,9 +1,7 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "timelock_", "type": "address" },
-      { "internalType": "address", "name": "comp_", "type": "address" },
-      { "internalType": "address", "name": "guardian_", "type": "address" }
+      { "internalType": "address", "name": "inv_", "type": "address" }
     ],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -166,56 +164,6 @@
   },
   {
     "constant": false,
-    "inputs": [],
-    "name": "__abdicate",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [],
-    "name": "__acceptAdmin",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newPendingAdmin",
-        "type": "address"
-      },
-      { "internalType": "uint256", "name": "eta", "type": "uint256" }
-    ],
-    "name": "__executeSetTimelockPendingAdmin",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newPendingAdmin",
-        "type": "address"
-      },
-      { "internalType": "uint256", "name": "eta", "type": "uint256" }
-    ],
-    "name": "__queueSetTimelockPendingAdmin",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
     "inputs": [
       { "internalType": "uint256", "name": "proposalId", "type": "uint256" }
     ],
@@ -250,21 +198,6 @@
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "comp",
-    "outputs": [
-      {
-        "internalType": "contract CompInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -320,8 +253,10 @@
   {
     "constant": true,
     "inputs": [],
-    "name": "guardian",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "inv",
+    "outputs": [
+      { "internalType": "contract InvInterface", "name": "", "type": "address" }
+    ],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -447,11 +382,7 @@
     "inputs": [],
     "name": "timelock",
     "outputs": [
-      {
-        "internalType": "contract TimelockInterface",
-        "name": "",
-        "type": "address"
-      }
+      { "internalType": "contract Timelock", "name": "", "type": "address" }
     ],
     "payable": false,
     "stateMutability": "view",
