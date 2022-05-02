@@ -119,7 +119,7 @@ export function handleVoteCast(event: VoteCast): void {
     .concat("-")
     .concat(event.params.proposalId.toString());
   let vote = getOrCreateVote(voteId);
-  let voter = getOrCreateDelegate(event.params.voter.toHexString(), false);
+  let voter = getOrCreateDelegate(event.params.voter.toHexString(), true);
 
   // checking if the voter was a delegate already accounted for, if not we should log an error
   // since it shouldn't be possible for a delegate to vote without first being "created"
@@ -274,7 +274,7 @@ export function handleVoteCastAlpha(event: VoteCastAlpha): void {
     .concat("-")
     .concat(event.params.proposalId.toString());
   let vote = getOrCreateVote(voteId);
-  let voter = getOrCreateDelegate(event.params.voter.toHexString(), false);
+  let voter = getOrCreateDelegate(event.params.voter.toHexString(), true);
 
   // checking if the voter was a delegate already accounted for, if not we should log an error
   // since it shouldn't be possible for a delegate to vote without first being "created"
