@@ -1,6 +1,6 @@
-## Compound Governance Subgraph
+## Inverse Governance Subgraph
 
-This subgraph indexes and exposes in GraphQL all the event data related to the GovernorAlpha and InverseToken contracts from Inverse, providing an easy access to Token holder and Delegates information, Proposals and votes casted, and all the relationships between those entities.
+This subgraph indexes and exposes in GraphQL all the event data related to the Governor Alpha and Mills, and InverseToken contracts from Inverse, providing an easy access to Token holder and Delegates information, Proposals and votes casted, and all the relationships between those entities.
 
 A live version of this subgraph can be found [here](https://thegraph.com/explorer/subgraph/arr00/compound-governance-2), along with useful queries and examples already available on the playground.
 
